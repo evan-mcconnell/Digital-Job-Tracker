@@ -1,22 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import {connect} from 'react-redux';
 
 
-function NewJobForm(props) {
+function NewJobTypeForm() {
   let _title = null;
   let _desciption = null;
-  let _job_type = null;
 
-  function handleNewJobSubmission(e) {
+  function handleNewJobTypeSubmission(e) {
     e.preventDefault();
     console.log(_title.value);
     console.log(_desciption.value);
-    console.log(_job_type.value);
     _title = '';
     _desciption = '';
-    _job_type = '';
-
   }
   const HeadDiv = styled.div`
     height: 49px;
@@ -29,12 +24,11 @@ function NewJobForm(props) {
 
   `;
 
-  // drop down to select a specific type of job already in the system? Edit form to update? 
 
   return (
     <div className='main'>
-      <HeadDiv>Add a Job To Board</HeadDiv>
-      <form onSubmit={handleNewJobSubmission}>
+      <HeadDiv>Add a Job Type</HeadDiv>
+      <form onSubmit={handleNewJobTypeSubmission}>
         <input type='text' 
           id='title'
           placeholder='title'
@@ -43,15 +37,6 @@ function NewJobForm(props) {
           id='desciption'
           placeholder='desciption'
           ref={(input) => {_desciption = input;}} />
-        <select
-          ref={select => {_job_type = select;}}
-          name="job_type">
-          <option value=''>Choose a Type from the List</option>
-          {Object.keys(props.typesList).map((type) => {
-            return <option value={props.typesList[type].title} key={type}>{props.typesList[type].title}</option>
-          })}
-        </select>
-          <br/>
         <button type='submit'>Add New Job</button>
       </form>
       <style jsx>{`
@@ -92,10 +77,4 @@ function NewJobForm(props) {
   )
 }
 
-const mapStateToProps = state => {
-  return {
-    typesList: state.masterJobTypesList
-  }
-}
-
-export default connect(mapStateToProps)(NewJobForm);
+export default NewJobTypeForm;

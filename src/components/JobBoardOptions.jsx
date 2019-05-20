@@ -6,6 +6,7 @@ function JobBoardOptions(props) {
   return (
     <div>
       <button onClick={props.onOpenNewJob}>Add A Job</button>
+      <button onClick={props.onOpenNewJobType}>Add a Job Type</button>
       <hr/>
       <style jsx>{`
         button {

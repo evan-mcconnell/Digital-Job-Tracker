@@ -38,6 +38,23 @@ export const initialState = {
       details: null,
     }
   },
+  masterJobTypesList: {
+    0: {
+      id: 0,
+      title: 'Test10',
+      desciption: 'this is a desciption',
+    },
+    1: {
+      id: 1,
+      title: 'Test12',
+      desciption: 'this is a desciption',
+    },
+    2: {
+      id: 2,
+      title: 'Test23',
+      desciption: 'this is a desciption',
+    },
+  },
   masterJobsList: {
     0: {
       id: 0,
