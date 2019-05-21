@@ -1,33 +1,3 @@
-// Constants
-
-const ADD_JOB = 'ADD_JOB';
-
-// Action Creators
-
-export function addJob(job) {
-  return {
-    type: ADD_JOB,
-    job
-  }
-}
-
-export function getJobTypes(){
-  return async function() {
-    let json;
-    try {
-      const response = await fetch('http://localhost:3000/job_types')
-      json = await response.json();
-      console.log(json.message);
-      return json;
-    }
-    catch (e) {
-      json = console.log('An ERROR!', e)
-    }
-  }
-}
-
-
-// Initial State
 export const initialState = {
   masterLaneList: {
     0: {
@@ -133,16 +103,5 @@ export const initialState = {
       dueDate: 'dateString',
       specialInstructions: 'Talk to Nick for more info'
     },
-  }
-}
-
-// Reducer
-
-export default function reducer(state = initialState, action){
-  switch (action.type){
-  case ADD_JOB:
-    return state;
-  default: 
-    return state;
   }
 }

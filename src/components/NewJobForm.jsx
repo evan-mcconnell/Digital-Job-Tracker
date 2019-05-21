@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
+import { getJobTypes } from './../../redux/modules/jobBoard';
+
 
 
 function NewJobForm(props) {
@@ -30,6 +32,8 @@ function NewJobForm(props) {
   `;
 
   // drop down to select a specific type of job already in the system? Edit form to update? 
+
+  props.dispatch(getJobTypes());
 
   return (
     <div className='main'>

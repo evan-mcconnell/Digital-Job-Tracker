@@ -12,6 +12,7 @@
   "author": "Kimberly McConnell",
   "license": "ISC",
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -19,6 +20,7 @@
     "react-redux": "^7.0.3",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
+    "redux-thunk": "^2.2.0",
     "styled-components": "^4.2.0",
     "styled-jsx": "3.2.1",
     "uuid": "^3.3.2"
