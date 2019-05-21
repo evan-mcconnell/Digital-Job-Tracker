@@ -35,13 +35,21 @@ export function addJobType(jobType){
     let json;
     console.log(jobType)
     console.log(JSON.stringify(jobType))
+    console.log(JSON.stringify({
+      title: jobType.title,
+      description: jobType.description
+    }))
     try {
       fetch('http://localhost:3000/job_types', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
+            "Content-Type": "application/json"
         },
-        body: JSON.stringify(jobType)
+        body: JSON.stringify({
+          title: jobType.title,
+          description: jobType.description
+        })
       })
       dispatch(getJobTypes());
     }
