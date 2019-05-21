@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import JobBoard from './JobBoard';
 import Header from './Header';
 import {connect} from 'react-redux';
-import { getJobTypes } from './../actions';
+import { getJobTypes, getJobs } from './../actions';
 
 
 
@@ -13,7 +13,8 @@ class App extends Component {
   }
   
   componentWillMount(){
-    this.props.dispatch(getJobTypes())
+    this.props.dispatch(getJobTypes());
+    this.props.dispatch(getJobs());
   }
   
   render() {
@@ -44,6 +45,7 @@ class App extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     getJobTypes,
+    getJobs,
   }
 }
 

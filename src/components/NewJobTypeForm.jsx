@@ -18,8 +18,8 @@ function NewJobTypeForm({dispatch}) {
       description: _description.value
     }
     dispatch(addJobType(newType));
-    _title = '';
-    _description = '';
+    _title.value = '';
+    _description.value = '';
 
   }
 
