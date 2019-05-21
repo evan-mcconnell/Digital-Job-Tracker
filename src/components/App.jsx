@@ -2,8 +2,20 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import JobBoard from './JobBoard';
 import Header from './Header';
+import {connect} from 'react-redux';
+import { getJobTypes } from './../actions';
+
+
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+  
+  componentWillMount(){
+    this.props.dispatch(getJobTypes())
+  }
+  
   render() {
     return (
       <div>
@@ -29,4 +41,12 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    getJobTypes,
+  }
+}
+
+
+
+export default connect(mapDispatchToProps)(App);

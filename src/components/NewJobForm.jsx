@@ -32,7 +32,9 @@ function NewJobForm(props) {
 
   // drop down to select a specific type of job already in the system? Edit form to update? 
 
-  props.dispatch(getJobTypes());
+
+  // await props.dispatch(getJobTypes());
+  console.log(props.state);
 
   return (
     <div className='main'>
@@ -50,6 +52,7 @@ function NewJobForm(props) {
           ref={select => {_job_type = select;}}
           name="job_type">
           <option value=''>Choose a Type from the List</option>
+          
           {/* {Object.keys(props.typesList).map((type) => {
             return <option value={props.typesList[type].title} key={type}>{props.typesList[type].title}</option>
           })} */}
@@ -97,7 +100,7 @@ function NewJobForm(props) {
 
 const mapStateToProps = state => {
   return {
-    typesList: state.masterJobTypesList
+    state: state,
   }
 }
 

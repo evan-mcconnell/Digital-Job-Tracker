@@ -1,1 +1,2 @@
 const ADD_JOB = 'ADD_JOB';
+const GET_JOB_TYPE_LIST = 'GET_JOB_TYPE_LIST';

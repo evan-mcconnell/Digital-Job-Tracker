@@ -22,6 +22,8 @@ function JobBoard() {
     flex-direction: row;
   `;
 
+  
+
   return (
     <div>
       <JobBoardOptions onOpenNewJob={handleOpenNewJob}

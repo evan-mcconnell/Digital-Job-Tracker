@@ -6,7 +6,7 @@ import lanesReducer from './lanesReducer';
 const rootReducer = combineReducers({
   jobsList: jobsReducer,
   jobTypesList: jobTypesReducer,
-  lanesList: lanesReducer
+  // lanesList: lanesReducer
 });
 
 export default rootReducer;
