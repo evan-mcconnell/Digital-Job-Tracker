@@ -25,18 +25,20 @@ function Lane(props) {
         <h4>{props.laneinfo.name}</h4>
       </LaneName>
       <div className="lane-content">
-      {jobList.forEach((job) => {
+      {/* {jobList.forEach((job) => {
       <Job jobInfo={job} />
-      })}
-        {/* {props.jobList.map(function(job, index) {
+      })} */}
+        {jobList.map(function(job, index) {
           let lane = props.laneinfo.id;
-          let jobLane = props.jobList.lane_id;
+          let jobLane = job.lane_id;
+          console.log("joblane", jobLane)
+          console.log(lane)
           if (jobLane === lane){
             return <Job jobInfo={job}
                         lane={lane}
               key={index} />;
           }
-        })} */}
+        })}
       </div>
       <style jsx>{`
         h4 {

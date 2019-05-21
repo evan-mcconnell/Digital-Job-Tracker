@@ -34,8 +34,8 @@ function NewJobForm(props) {
 
 
   // await props.dispatch(getJobTypes());
-  console.log(props.typesList);
-  console.log("0", props.typesList[0]);
+  console.log(props.typeList);
+  console.log("0", props.typeList[0]);
 
   return (
     <div className='main'>
@@ -54,7 +54,7 @@ function NewJobForm(props) {
           name="job_type">
           <option value=''>Choose a Type from the List</option>
           
-          {(props.typesList).map((type) => {
+          {(props.typeList).map((type) => {
             return <option value={type.title} key={type.id}>{type.title}</option>
           })}
         </select>
@@ -101,7 +101,7 @@ function NewJobForm(props) {
 
 const mapStateToProps = state => {
   return {
-    typesList: state.jobTypesList,
+    typeList: state.jobTypeList,
   }
 }
 

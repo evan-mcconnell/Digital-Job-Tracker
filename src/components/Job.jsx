@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 
 function Job(props) {
+  console.log("mememe")
   let headerColor;
   // if (props.jobInfo.jobType === 'Test') {
   //   headerColor = '#0091FF';
