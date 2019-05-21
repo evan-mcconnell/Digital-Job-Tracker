@@ -2,7 +2,7 @@ import constants from './../constants';
 
 const { initialState, types } = constants;
 
-export default function jobsReducer(state = {}, action){
+export default function jobsReducer(state = [], action){
     switch (action.type){
     case 'GET_JOB_LIST':
 		  const newJobList = action.jobList

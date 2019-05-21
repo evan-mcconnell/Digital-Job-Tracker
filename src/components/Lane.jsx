@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
 import {initialState} from './../../redux/modules/jobBoard';
 import Job from './Job';
 
@@ -15,24 +16,27 @@ const LaneName = styled.div`
   height: 40px;
 `;
 
-const jobsList = initialState.masterJobsList;
-
 function Lane(props) {
+  console.log("inlane", props.jobList)
+  const jobList = props.jobList;
   return (
     <Main>
       <LaneName>
         <h4>{props.laneinfo.name}</h4>
       </LaneName>
       <div className="lane-content">
-        {Object.keys(jobsList).map(function(jobId, index) {
-          let lane = props.laneinfo.name;
-          let jobLane = jobsList[jobId].lane;
+      {jobList.forEach((job) => {
+      <Job jobInfo={job} />
+      })}
+        {/* {props.jobList.map(function(job, index) {
+          let lane = props.laneinfo.id;
+          let jobLane = props.jobList.lane_id;
           if (jobLane === lane){
-            return <Job jobInfo={jobsList[jobId]}
+            return <Job jobInfo={job}
                         lane={lane}
               key={index} />;
           }
-        })}
+        })} */}
       </div>
       <style jsx>{`
         h4 {
@@ -52,4 +56,10 @@ function Lane(props) {
   );
 }
 
-export default Lane;
+const mapStateToProps = state => {
+  return {
+    jobList: state.jobList,
+  }
+}
+
+export default connect(mapStateToProps)(Lane);

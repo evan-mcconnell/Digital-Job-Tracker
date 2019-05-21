@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import JobBoard from './JobBoard';
 import Header from './Header';
@@ -7,40 +7,38 @@ import { getJobTypes, getJobs } from './../actions';
 
 
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+function App(props) {
   
-  componentWillMount(){
-    this.props.dispatch(getJobTypes());
-    this.props.dispatch(getJobs());
-  }
   
-  render() {
-    return (
-      <div>
-        <Router>
-          <Header />
-          <hr />
-          <Route exact path="/" component={JobBoard} />
-          {/* <Route path="/inventory" component={InventoryBoard} /> */}
-        </Router>
-        <style jsx global>{`
-          body {
-            font-family: comfortaa, sans-serif;
-          }
-          * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-          }
-        
-        `}</style>
-      </div>
-    );
-  }
+  useEffect(() => {
+    props.dispatch(getJobTypes());
+    props.dispatch(getJobs());
+  })
+
+
+  return (
+    <div>
+      <Router>
+        <Header />
+        <hr />
+        <Route exact path="/" component={JobBoard} />
+        {/* <Route path="/inventory" component={InventoryBoard} /> */}
+      </Router>
+      <style jsx global>{`
+        body {
+          font-family: comfortaa, sans-serif;
+        }
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+      
+      `}</style>
+    </div>
+  );
 }
+
 
 const mapDispatchToProps = dispatch => {
   return {

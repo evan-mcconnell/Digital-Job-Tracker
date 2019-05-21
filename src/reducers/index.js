@@ -4,8 +4,8 @@ import jobTypesReducer from './jobTypesReducer';
 import lanesReducer from './lanesReducer';
 
 const rootReducer = combineReducers({
-  jobsList: jobsReducer,
-  jobTypesList: jobTypesReducer,
+  jobList: jobsReducer,
+  jobTypeList: jobTypesReducer,
   // lanesList: lanesReducer
 });
 
