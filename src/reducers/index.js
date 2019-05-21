@@ -1,11 +1,12 @@
+import { combineReducers } from 'redux';
+import jobsReducer from './jobsReducer';
+import jobTypesReducer from './jobTypesReducer';
+import lanesReducer from './lanesReducer';
 
+const rootReducer = combineReducers({
+  jobsList: jobsReducer,
+  jobTypesList: jobTypesReducer,
+  lanesList: lanesReducer
+});
 
-
-export default function reducer(state = initialState, action){
-  switch (action.type){
-  case ADD_JOB:
-    return state;
-  default: 
-    return state;
-  }
-}
+export default rootReducer;

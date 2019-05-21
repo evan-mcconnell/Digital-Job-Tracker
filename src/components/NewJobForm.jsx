@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
-import { getJobTypes } from './../../redux/modules/jobBoard';
+import { getJobTypes } from './../actions';
 
 
 
@@ -28,7 +28,6 @@ function NewJobForm(props) {
     font-weight: bold;
     border-right: 2px solid black;
     border-top-right-radius: 10px;
-
   `;
 
   // drop down to select a specific type of job already in the system? Edit form to update? 
@@ -51,9 +50,9 @@ function NewJobForm(props) {
           ref={select => {_job_type = select;}}
           name="job_type">
           <option value=''>Choose a Type from the List</option>
-          {Object.keys(props.typesList).map((type) => {
+          {/* {Object.keys(props.typesList).map((type) => {
             return <option value={props.typesList[type].title} key={type}>{props.typesList[type].title}</option>
-          })}
+          })} */}
         </select>
           <br/>
         <button type='submit'>Add New Job</button>

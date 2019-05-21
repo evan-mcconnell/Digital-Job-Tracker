@@ -10,10 +10,11 @@ export function addJob(job) {
 export function getJobTypes(){
   return async function() {
     let json;
+    console.log("somewhere");
     try {
       const response = await fetch('http://localhost:3000/job_types')
       json = await response.json();
-      console.log(json.message);
+      console.log("somewhere", json);
       return json;
     }
     catch (e) {
