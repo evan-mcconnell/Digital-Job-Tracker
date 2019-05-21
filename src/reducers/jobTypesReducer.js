@@ -5,10 +5,8 @@ const { initialState, types } = constants;
 export default function jobTypesReducer(state = {}, action){
 	switch (action.type){
 	case 'GET_JOB_TYPE_LIST':
-	console.log("reducer", action.jobTypeList)
 		const newJobTypeList = action.jobTypeList
 		return newJobTypeList;
-
 	case types.ADD_JOB_TYPE:
 			return state;
 	default: 

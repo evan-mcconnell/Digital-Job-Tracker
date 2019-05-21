@@ -29,3 +29,24 @@ export function getJobTypes(){
     }
   }
 }
+
+export function addJobType(jobType){
+  return function(dispatch) {
+    let json;
+    console.log(jobType)
+    console.log(JSON.stringify(jobType))
+    try {
+      fetch('http://localhost:3000/job_types', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify(jobType)
+      })
+      dispatch(getJobTypes());
+    }
+    catch (e) {
+      json = console.log('An ERROR!', e)
+    }
+  }
+}

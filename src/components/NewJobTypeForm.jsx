@@ -1,18 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import { addJobType } from './../actions';
 
 
-function NewJobTypeForm() {
+
+function NewJobTypeForm({dispatch}) {
   let _title = null;
-  let _desciption = null;
+  let _description = null;
 
   function handleNewJobTypeSubmission(e) {
     e.preventDefault();
     console.log(_title.value);
-    console.log(_desciption.value);
+    console.log(_description.value);
+    let newType = {
+      title: _title.value,
+      description: _description.value
+    }
+    dispatch(addJobType(newType));
     _title = '';
-    _desciption = '';
+    _description = '';
+
   }
+
+
+
   const HeadDiv = styled.div`
     height: 49px;
     width: 100%;
@@ -21,7 +33,6 @@ function NewJobTypeForm() {
     font-weight: bold;
     border-right: 2px solid black;
     border-top-right-radius: 10px;
-
   `;
 
 
@@ -34,9 +45,9 @@ function NewJobTypeForm() {
           placeholder='title'
           ref={(input) => {_title = input;}} />
         <input type='text' 
-          id='desciption'
-          placeholder='desciption'
-          ref={(input) => {_desciption = input;}} />
+          id='description'
+          placeholder='description'
+          ref={(input) => {_description = input;}} />
         <button type='submit'>Add New Job</button>
       </form>
       <style jsx>{`
@@ -77,4 +88,4 @@ function NewJobTypeForm() {
   )
 }
 
-export default NewJobTypeForm;
+export default connect()(NewJobTypeForm);
