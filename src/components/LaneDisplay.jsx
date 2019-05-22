@@ -1,26 +1,37 @@
 import React from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
 
 import Lane from './Lane';
-import {masterLaneList} from './../data';
+
 
 const LaneContainer = styled.div`
   display: flex;
   flex-direction: row;
+  margin: auto;
 `;
 
 
-function LaneDisplay() {
+function LaneDisplay(props) {
+  const laneList = props.laneList;
   return (
-    <div>
       <LaneContainer>
-        {Object.keys(masterLaneList).map(function(laneId, index) {
-          return <Lane laneinfo={masterLaneList[laneId]}
+        {laneList.map(function(lane, index) {
+          return <Lane laneinfo={lane}
+            jobList={props.jobList}
             key={index} />;
         })}
       </LaneContainer>
-    </div>
   );
 }
 
-export default LaneDisplay;
+const mapStateToProps = state => {
+  return {
+    jobList: state.jobList,
+    jobTypeList: state.jobTypeList,
+    laneList: state.laneList
+  }
+}
+
+
+export default connect(mapStateToProps)(LaneDisplay);

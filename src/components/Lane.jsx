@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { connect } from 'react-redux';
 import Job from './Job';
 
 
@@ -8,6 +7,7 @@ const Main = styled.div`
   height: 100%;
   flex-grow: 1;
   min-width: 350px;
+  max-width: 450px;
 `;
 const LaneName = styled.div`
   text-align: center;
@@ -39,7 +39,7 @@ function Lane(props) {
           font-size: 1.2em
         }
         .lane-content {
-          height: 50vw;
+          height: 85vh;
           background-color: lightgrey; 
       // background color will be a function to gradually show a gradient of greys
           border: 1px solid black;
@@ -51,12 +51,6 @@ function Lane(props) {
   );
 }
 
-const mapStateToProps = state => {
-  return {
-    jobList: state.jobList,
-    jobTypeList: state.jobTypeList,
-    laneList: state.laneList
-  }
-}
 
-export default connect(mapStateToProps)(Lane);
+
+export default Lane;

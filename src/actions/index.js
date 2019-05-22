@@ -79,3 +79,37 @@ export function addJobType(jobType){
     }
   }
 }
+
+
+// LANES SECTION
+
+
+export function setLaneList(laneList) {
+  return {
+    type: 'GET_LANE_LIST',
+    laneList
+  }
+}
+
+export function getLanes(){
+  return async function(dispatch) {
+    let json;
+    try {
+      const response = await fetch('http://localhost:3000/lanes')
+      json = await response.json();
+      console.log("in action lanes", json);
+      dispatch(setLaneList(json));
+    }
+    catch (e) {
+      json = console.log('An ERROR!', e)
+    }
+  }
+}
+
+
+export function addLane(lane) {
+  return {
+    type: ADD_LANE,
+    lane
+  }
+}
