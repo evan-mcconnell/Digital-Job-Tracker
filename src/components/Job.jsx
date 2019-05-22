@@ -39,7 +39,7 @@ function Job(props) {
         <button onClick={handleOpenEditForm}>Edit</button>
         { editFormOpen && 
           <JobEdit jobInfo={props.jobInfo}
-            lane={props.lane}
+            laneList={props.laneList}
             typeList={props.typeList}/> }
       </JobHeader>
       <MainCard>
@@ -61,6 +61,12 @@ function Job(props) {
         .card:hover {
           width: 95%;
           height: 110px;
+        }
+        button {
+          background-color: rgb(189, 211, 233);
+          border-radius: 3px;
+          border-color: rgb(75, 135, 195);
+          padding: 2px;
         }
       `}</style>
     </div>

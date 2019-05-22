@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 function JobEdit(props) {
 	const {dispatch} = props;
+  let _lane = null;
   let _title = null;
   let _description = null;
   let _job_type = null;
@@ -13,14 +14,21 @@ function JobEdit(props) {
     e.preventDefault();
     console.log(_title.value);
     console.log(_description.value);
-    console.log(_job_type.value);
-    let newJob = {
-      title: _title.value,
-      description: _description.value, 
-      job_type: _job_type.value,
-      due_date: _due_date.value,
-    }
-    // dispatch(addJob(newJob));
+		console.log(_job_type.value);
+		let newLane = _lane.value ? _lane.value : props.jobInfo.lane;
+		let newTitle = _title.value ? _title.value : props.jobInfo.title;
+		let newDescription = _description.value ? _description.value : props.jobInfo.description;
+		let newJobType = _job_type.value ? _job_type.value : props.jobInfo.job_type;
+		let newDueDate = _due_date.value ? _due_date.value : props.jobInfo.due_date;
+    let edittedJob = {
+      lane: newLane,
+      title: newTitle,
+      description: newDescription, 
+      job_type: newJobType,
+      due_date: newDueDate
+		}
+		console.log(newTitle)
+    // dispatch(editJob(edittedJob));
     _title = '';
     _description = '';
     _job_type = '';
@@ -30,27 +38,38 @@ function JobEdit(props) {
 	
 	const EditForm = styled.div`
 		position: absolute;
-		margin-top: 30px;
+		margin-top: 26px;
 		margin-left: 160px;
 		padding: 5px;
-		background-color: rgba(63, 127, 191, 0.66);
+		background-color: rgba(63, 127, 191, 0.8);
+		border: 2px solid rgba(63, 127, 191, 1);
+		border-radius: 8px;
 	`;
 	
   return (
 		<EditForm >
-			<form onSubmit={()=>{}}>
+			<form onSubmit={handleEditJobSubmission}>
+			<select
+          ref={select => {_job_type = select;}}
+          name="job_type">
+          <option value=''>Change Lane</option>
+          
+          {(props.laneList).map((lane) => {
+            return <option value={lane.id} key={lane.id}>{lane.name}</option>
+          })}
+        </select><br/>
         <input type='text' 
           id='title'
-          placeholder='title'
+          placeholder={props.jobInfo.title}
           ref={(input) => {_title = input;}} /> <br/>
         <input type='text' 
           id='description'
-          placeholder='description'
+          placeholder={props.jobInfo.description}
           ref={(input) => {_description = input;}} /><br/>
         <select
           ref={select => {_job_type = select;}}
           name="job_type">
-          <option value=''>Choose a Type from the List</option>
+          <option value=''>Change Job Type</option>
           
           {(props.typeList).map((type) => {
             return <option value={type.id} key={type.id}>{type.title}</option>
@@ -58,11 +77,26 @@ function JobEdit(props) {
         </select><br/>
         <input type='date' 
           id='due_date'
-          placeholder='due_date'
           ref={(input) => {_due_date = input;}} /><br/>
           <br/>
-        <button type='submit'>Add New Job</button>
+        <button type='submit'>Edit Job</button>
       </form>
+			<style jsx>{`
+				form {
+					padding: 5px;
+					text-align: center;
+				}
+				form * {
+					margin: 4px;
+				}
+				button {
+          background-color: rgb(189, 211, 233);
+          border-radius: 3px;
+          border-color: rgb(75, 135, 195);
+          padding: 2px;
+        }
+			
+			`}</style>
 		</EditForm>
 	)
 }
