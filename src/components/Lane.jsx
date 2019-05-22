@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {masterJobsList} from './../data';
+import { connect } from 'react-redux';
 import Job from './Job';
 
 
@@ -11,24 +11,23 @@ const Main = styled.div`
 `;
 const LaneName = styled.div`
   text-align: center;
-  border-top: 1px solid black;
   border-bottom: 1px solid black;
   height: 40px;
 `;
 
 function Lane(props) {
-  console.log(masterJobsList)
+  const jobList = props.jobList;
   return (
     <Main>
       <LaneName>
         <h4>{props.laneinfo.name}</h4>
       </LaneName>
       <div className="lane-content">
-        {Object.keys(masterJobsList).map(function(jobId, index) {
-          let lane = props.laneinfo.name;
-          let jobLane = masterJobsList[jobId].lane;
+        {jobList.map(function(job, index) {
+          let lane = props.laneinfo.id;
+          let jobLane = job.lane_id;
           if (jobLane === lane){
-            return <Job jobInfo={masterJobsList[jobId]}
+            return <Job jobInfo={job}
                         lane={lane}
               key={index} />;
           }
@@ -52,4 +51,12 @@ function Lane(props) {
   );
 }
 
-export default Lane;
+const mapStateToProps = state => {
+  return {
+    jobList: state.jobList,
+    jobTypeList: state.jobTypeList,
+    laneList: state.laneList
+  }
+}
+
+export default connect(mapStateToProps)(Lane);

@@ -11,7 +11,6 @@ const LaneContainer = styled.div`
 
 
 function LaneDisplay() {
-  console.log(masterLaneList);
   return (
     <div>
       <LaneContainer>

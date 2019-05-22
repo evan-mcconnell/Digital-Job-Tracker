@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open",
     "lint": "eslint src/** src/**/**; exit 0",
     "fix": "eslint src/** src/**/** --fix; exit 0"
@@ -13,16 +13,18 @@
   "license": "ISC",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "moment": "^2.18.1",
-    "prop-types": "^15.5.10",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-redux": "^5.0.6",
-    "react-router-dom": "^4.0.0",
-    "redux": "^3.7.2",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "react-router-dom": "^5.0.0",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
-    "styled-jsx": "^3.2.1",
-    "uuid": "^3.2.1"
+    "styled-components": "^4.2.0",
+    "styled-jsx": "3.2.1",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
