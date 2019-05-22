@@ -27,7 +27,6 @@ export function getJobs(){
 
 export function editJob(job){
   return async function(dispatch) {
-    let json;
     try {
       const response = await fetch(`http://localhost:3000/jobs/${job.id}`, {
         method: 'PUT',
@@ -48,7 +47,24 @@ export function editJob(job){
       dispatch(getJobs());
     }
     catch (e) {
-      json = console.log('An ERROR!', e)
+      console.log('An ERROR!', e)
+    }
+  }
+}
+
+export function deleteJob(job){
+  return async function(dispatch) {
+    try {
+      const response = await fetch(`http://localhost:3000/jobs/${job.id}`, {
+        method: 'DELETE'
+        // headers: {
+        //     'Accept': 'application/json',
+        //     "Content-Type": "application/json"
+        // },
+      })
+      dispatch(getJobs());
+    } catch (e) {
+      console.log('An ERROR!', e)
     }
   }
 }

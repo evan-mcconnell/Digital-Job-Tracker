@@ -39,7 +39,7 @@ function Header() {
       </FlexDiv>
       <FlexDiv>
         <Alinks><Link style={linkStyle} to="/">Jobs Board </Link></Alinks>
-        <Alinks><Link style={linkStyle} to="/"> Inventory Board</Link></Alinks>
+        {/* <Alinks><Link style={linkStyle} to="/"> Inventory Board</Link></Alinks> */}
       </FlexDiv>
       <Today>
         {thisDay}

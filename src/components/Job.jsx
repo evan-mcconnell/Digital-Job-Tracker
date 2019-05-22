@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import JobEdit from './JobEdit';
+import DeleteCheck from './DeleteCheck';
 
 
 function Job(props) {
 
   const [editFormOpen, setEditFormOpen] = useState(false);
+  const [deleteCheck, setDeleteCheck] = useState(false);
 
   function handleOpenEditForm() {
     setEditFormOpen(!editFormOpen);
-    console.log(editFormOpen);
+  }
+
+  function handleOpenDeleteCheck() {
+    setDeleteCheck(!deleteCheck);
   }
 
   let headerColor = ['#0091FF', '#1db001', '#9d18e0', '#b06101'];
@@ -38,6 +43,9 @@ function Job(props) {
         <h3>{props.typeList[props.jobInfo.job_type - 1].title}</h3>
         <h5>{props.jobInfo.due_date}</h5>
         <button onClick={handleOpenEditForm}>Edit</button>
+        <p onClick={handleOpenDeleteCheck}>X</p>
+        { deleteCheck && 
+          <DeleteCheck job={props.jobInfo}/>}
         { editFormOpen && 
           <JobEdit jobInfo={props.jobInfo}
             laneList={props.laneList}
