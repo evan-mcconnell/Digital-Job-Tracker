@@ -60,8 +60,7 @@ function NewJobTypeForm({dispatch}) {
           padding-top: 20px;
           border: 2px solid black;
           background-color: #b9f7be;
-          // exact height needs work
-          height: 100%;
+          height: 85vh;
           text-align: center;
         }
         input {
@@ -76,9 +75,11 @@ function NewJobTypeForm({dispatch}) {
           font-size: 18px;
           margin: 10px;
           padding: 5px;
+          border-radius: 5px;
+          box-shadow: 1px 1px 5px grey;
         }
         button:hover {
-          background-color: lightgreen;
+          background-color: lightblue;
         }
 
         @keyframes openUp {

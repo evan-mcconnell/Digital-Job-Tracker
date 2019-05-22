@@ -79,8 +79,7 @@ function NewJobForm(props) {
           padding-top: 20px;
           border: 2px solid black;
           background-color: #d9f1f9;
-          // exact height needs work
-          height: 100%;
+          height: 85vh;
           text-align: center;
         }
         input {
@@ -101,12 +100,12 @@ function NewJobForm(props) {
           font-size: 18px;
           margin: 10px;
           padding: 5px;
+          border-radius: 5px;
+          box-shadow: 1px 1px 5px grey;
         }
         button:hover {
           background-color: lightgreen;
         }
-        
-
         @keyframes openUp {
           0% {width: 0px}
           100% {width: 400px}

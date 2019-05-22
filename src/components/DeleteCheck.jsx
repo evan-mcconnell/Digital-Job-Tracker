@@ -31,7 +31,7 @@ function DeleteCheck(props) {
 				border-color: black;
 				font-size: 16px;
 				margin: 8px;
-				padding: 4px;
+				padding: 6px;
 			}
 		`}</style>
 		</div>
