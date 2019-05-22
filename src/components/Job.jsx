@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import JobEdit from './JobEdit';
 
 
 function Job(props) {
-  let headerColor = ['#0091FF', "#1db001", "#7501b0", "#b06101"]
-  // if (props.jobInfo.job_type === 1) {
-  //   headerColor = '#0091FF';
-  // } else {
-  //   headerColor = "#1db001";
-  // }
+
+  const [editFormOpen, setEditFormOpen] = useState(false);
+
+  function handleOpenEditForm() {
+    setEditFormOpen(!editFormOpen)
+  }
+
+  let headerColor = ['#0091FF', "#1db001", "#7501b0", "#b06101"];
 
   const MainCard = styled.div`
     padding: 5px;
@@ -33,6 +36,11 @@ function Job(props) {
       <JobHeader>
         <h3>{props.jobInfo.job_type}</h3>
         <h5>{props.jobInfo.due_date}</h5>
+        <button onClick={handleOpenEditForm}>Edit</button>
+        { editFormOpen && 
+          <JobEdit jobInfo={props.jobInfo}
+            lane={props.lane}
+            typeList={props.typeList}/> }
       </JobHeader>
       <MainCard>
         {props.jobInfo.description}<br></br>

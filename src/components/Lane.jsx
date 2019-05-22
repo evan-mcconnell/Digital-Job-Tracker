@@ -29,6 +29,7 @@ function Lane(props) {
           if (jobLane === lane){
             return <Job jobInfo={job}
                         lane={lane}
+                        typeList={props.typeList}
               key={index} />;
           }
         })}

@@ -19,6 +19,7 @@ function LaneDisplay(props) {
         {laneList.map(function(lane, index) {
           return <Lane laneinfo={lane}
             jobList={props.jobList}
+            typeList={props.jobTypeList}
             key={index} />;
         })}
       </LaneContainer>

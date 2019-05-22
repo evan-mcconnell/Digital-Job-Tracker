@@ -27,15 +27,33 @@ export function getJobs(){
 
 
 export function addJob(job) {
-  return {
-    type: ADD_JOB,
-    job
+  return async function(dispatch) {
+    try {
+      await fetch('http://localhost:3000/jobs', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          title: job.title,
+          description: job.description,
+          lane_id: 1,
+          job_type: job.job_type,
+          due_date: job.due_date
+        })
+      })
+      dispatch(getJobs());
+    }
+    catch (e) {
+      console.log('An ERROR!', e)
+    }
   }
 }
 
 // JOB TYPES SECTION
 
-export function getJobTypeList(jobTypeList) {
+export function setJobTypeList(jobTypeList) {
   return {
     type: 'GET_JOB_TYPE_LIST',
     jobTypeList
@@ -49,8 +67,7 @@ export function getJobTypes(){
       const response = await fetch('http://localhost:3000/job_types')
       json = await response.json();
       console.log("in action", json);
-      // console.log(GET_JOB_TYPE_LIST);
-      dispatch(getJobTypeList(json));
+      dispatch(setJobTypeList(json));
     }
     catch (e) {
       json = console.log('An ERROR!', e)
