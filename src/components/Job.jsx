@@ -3,9 +3,8 @@ import styled from 'styled-components';
 
 
 function Job(props) {
-  console.log("mememe")
-  let headerColor;
-  // if (props.jobInfo.jobType === 'Test') {
+  let headerColor = ['#0091FF', "#1db001", "#7501b0", "#b06101"]
+  // if (props.jobInfo.job_type === 1) {
   //   headerColor = '#0091FF';
   // } else {
   //   headerColor = "#1db001";
@@ -23,7 +22,7 @@ function Job(props) {
   `;
   const JobHeader = styled.div`
     height: 30px;
-    background-color: ${headerColor};
+    background-color: ${headerColor[props.jobInfo.job_type - 1]};
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -33,7 +32,7 @@ function Job(props) {
     <div className="card">
       <JobHeader>
         <h3>{props.jobInfo.job_type}</h3>
-        {/* <h5>{props.jobInfo.dueDate}</h5> */}
+        <h5>{props.jobInfo.due_date}</h5>
       </JobHeader>
       <MainCard>
         {props.jobInfo.description}<br></br>
