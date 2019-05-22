@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { editJob } from './../actions';
+import {connect} from 'react-redux';
+
 
 
 function JobEdit(props) {
@@ -15,25 +18,26 @@ function JobEdit(props) {
     console.log(_title.value);
     console.log(_description.value);
 		console.log(_job_type.value);
+		let id = props.jobInfo.id;
 		let newLane = _lane.value ? _lane.value : props.jobInfo.lane;
 		let newTitle = _title.value ? _title.value : props.jobInfo.title;
 		let newDescription = _description.value ? _description.value : props.jobInfo.description;
 		let newJobType = _job_type.value ? _job_type.value : props.jobInfo.job_type;
 		let newDueDate = _due_date.value ? _due_date.value : props.jobInfo.due_date;
     let edittedJob = {
-      lane: newLane,
+			id: id,
+      lane_id: newLane,
       title: newTitle,
       description: newDescription, 
       job_type: newJobType,
       due_date: newDueDate
 		}
-		console.log(newTitle)
-    // dispatch(editJob(edittedJob));
+		console.log(newLane)
+    dispatch(editJob(edittedJob));
     _title = '';
     _description = '';
     _job_type = '';
     _due_date = '';
-
 	}
 	
 	const EditForm = styled.div`
@@ -50,8 +54,8 @@ function JobEdit(props) {
 		<EditForm >
 			<form onSubmit={handleEditJobSubmission}>
 			<select
-          ref={select => {_job_type = select;}}
-          name="job_type">
+          ref={select => {_lane = select;}}
+          name="lane">
           <option value=''>Change Lane</option>
           
           {(props.laneList).map((lane) => {
@@ -101,4 +105,4 @@ function JobEdit(props) {
 	)
 }
 
-export default JobEdit;
+export default connect()(JobEdit);

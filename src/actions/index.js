@@ -25,6 +25,34 @@ export function getJobs(){
   }
 }
 
+export function editJob(job){
+  return async function(dispatch) {
+    let json;
+    try {
+      const response = await fetch(`http://localhost:3000/jobs/${job.id}`, {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json',
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          id: job.id,
+          title: job.title,
+          description: job.description,
+          lane_id: job.lane_id,
+          job_type: job.job_type,
+          due_date: job.due_date
+        })
+      })
+      console.log(response)
+      dispatch(getJobs());
+    }
+    catch (e) {
+      json = console.log('An ERROR!', e)
+    }
+  }
+}
+
 
 export function addJob(job) {
   return async function(dispatch) {
