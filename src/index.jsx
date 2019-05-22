@@ -13,16 +13,16 @@ import logger from 'redux-logger';
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger));
 
 let unsubscribe = store.subscribe(() =>
-  console.log("store", store.getState())
+  console.log('store', store.getState())
 );
 
 const render = (Component) => {
   ReactDOM.render(
-      <HashRouter>
-        <Provider store={store}>
-          <Component/>
-        </Provider>
-      </HashRouter>,
+    <HashRouter>
+      <Provider store={store}>
+        <Component/>
+      </Provider>
+    </HashRouter>,
     document.getElementById('react-app-root')
   );
 };

@@ -16,7 +16,7 @@ function NewJobTypeForm({dispatch}) {
     let newType = {
       title: _title.value,
       description: _description.value
-    }
+    };
     dispatch(addJobType(newType));
     _title.value = '';
     _description.value = '';
@@ -40,11 +40,13 @@ function NewJobTypeForm({dispatch}) {
     <div className='main'>
       <HeadDiv>Add a Job Type</HeadDiv>
       <form onSubmit={handleNewJobTypeSubmission}>
+      <label>Title of Job Type: </label>
         <input type='text' 
           id='title'
           placeholder='title'
           ref={(input) => {_title = input;}} />
-        <input type='text' 
+        <label>Description of Type: </label>
+        <textarea type='text' 
           id='description'
           placeholder='description'
           ref={(input) => {_description = input;}} />
@@ -57,7 +59,7 @@ function NewJobTypeForm({dispatch}) {
         form {
           padding-top: 20px;
           border: 2px solid black;
-          background-color: lightgrey;
+          background-color: #b9f7be;
           // exact height needs work
           height: 100%;
           text-align: center;
@@ -85,7 +87,7 @@ function NewJobTypeForm({dispatch}) {
         }
       `}</style>
     </div>
-  )
+  );
 }
 
 export default connect()(NewJobTypeForm);

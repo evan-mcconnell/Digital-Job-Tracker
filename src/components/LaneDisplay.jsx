@@ -15,15 +15,15 @@ const LaneContainer = styled.div`
 function LaneDisplay(props) {
   const laneList = props.laneList;
   return (
-      <LaneContainer>
-        {laneList.map(function(lane, index) {
-          return <Lane laneinfo={lane}
+    <LaneContainer>
+      {laneList.map(function(lane, index) {
+        return <Lane laneinfo={lane}
           laneList={props.laneList}
-            jobList={props.jobList}
-            typeList={props.jobTypeList}
-            key={index} />;
-        })}
-      </LaneContainer>
+          jobList={props.jobList}
+          typeList={props.jobTypeList}
+          key={index} />;
+      })}
+    </LaneContainer>
   );
 }
 
@@ -32,8 +32,8 @@ const mapStateToProps = state => {
     jobList: state.jobList,
     jobTypeList: state.jobTypeList,
     laneList: state.laneList
-  }
-}
+  };
+};
 
 
 export default connect(mapStateToProps)(LaneDisplay);

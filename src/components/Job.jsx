@@ -8,10 +8,11 @@ function Job(props) {
   const [editFormOpen, setEditFormOpen] = useState(false);
 
   function handleOpenEditForm() {
-    setEditFormOpen(!editFormOpen)
+    setEditFormOpen(!editFormOpen);
+    console.log(editFormOpen);
   }
 
-  let headerColor = ['#0091FF', "#1db001", "#7501b0", "#b06101"];
+  let headerColor = ['#0091FF', '#1db001', '#9d18e0', '#b06101'];
 
   const MainCard = styled.div`
     padding: 5px;
@@ -34,13 +35,14 @@ function Job(props) {
   return (
     <div className="card">
       <JobHeader>
-        <h3>{props.jobInfo.job_type}</h3>
+        <h3>{props.typeList[props.jobInfo.job_type - 1].title}</h3>
         <h5>{props.jobInfo.due_date}</h5>
         <button onClick={handleOpenEditForm}>Edit</button>
         { editFormOpen && 
           <JobEdit jobInfo={props.jobInfo}
             laneList={props.laneList}
-            typeList={props.typeList}/> }
+            typeList={props.typeList}
+            onEditSubmit={handleOpenEditForm}/> }
       </JobHeader>
       <MainCard>
         {props.jobInfo.description}<br></br>

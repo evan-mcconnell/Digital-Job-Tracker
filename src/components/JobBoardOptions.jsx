@@ -5,8 +5,8 @@ function JobBoardOptions(props) {
 
   return (
     <div>
-      <button onClick={props.onOpenNewJob}>Add A Job</button>
-      <button onClick={props.onOpenNewJobType}>Add a Job Type</button>
+      <button className='newJobType' onClick={props.onOpenNewJobType}>Add a Job Type</button>
+      <button className='newJob' onClick={props.onOpenNewJob}>Add A Job</button>
       <hr/>
       <style jsx>{`
         button {
@@ -18,13 +18,22 @@ function JobBoardOptions(props) {
           font-size: 18px;
           padding: 5px;
         }
-        button:hover {
-          background-color: #ccc;
+        .newJob {
+          background-color: #d9f1f9;
+        }
+        .newJobType {
+          background-color: #b9f7be;
+        }
+        .newJob:hover {
+          background-color: #b9e7f7;
+        }
+        .newJobType:hover {
+          background-color: #a9f2af;
         }
       `}</style>
     </div>
-  )
-};
+  );
+}
 
 JobBoardOptions.propTypes = {
   onOpenNewJob: PropTypes.func,

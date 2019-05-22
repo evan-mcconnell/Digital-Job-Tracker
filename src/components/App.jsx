@@ -14,7 +14,7 @@ function App(props) {
     props.dispatch(getJobTypes());
     props.dispatch(getJobs());
     props.dispatch(getLanes());
-  })
+  });
 
 
   return (
@@ -46,8 +46,8 @@ const mapDispatchToProps = dispatch => {
     getJobTypes,
     getJobs,
     getLanes,
-  }
-}
+  };
+};
 
 
 

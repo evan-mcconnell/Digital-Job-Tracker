@@ -28,9 +28,9 @@ function Lane(props) {
           let jobLane = job.lane_id;
           if (jobLane === lane){
             return <Job jobInfo={job}
-                        lane={lane}
-                        laneList={props.laneList}
-                        typeList={props.typeList}
+              lane={lane}
+              laneList={props.laneList}
+              typeList={props.typeList}
               key={index} />;
           }
         })}

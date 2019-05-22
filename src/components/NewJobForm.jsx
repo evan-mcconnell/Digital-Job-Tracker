@@ -22,7 +22,7 @@ function NewJobForm(props) {
       description: _description.value, 
       job_type: _job_type.value,
       due_date: _due_date.value,
-    }
+    };
     dispatch(addJob(newJob));
     _title = '';
     _description = '';
@@ -44,10 +44,12 @@ function NewJobForm(props) {
     <div className='main'>
       <HeadDiv>Add a Job To Board</HeadDiv>
       <form onSubmit={handleNewJobSubmission}>
+      <label>Title of Job: </label>
         <input type='text' 
           id='title'
           placeholder='title'
           ref={(input) => {_title = input;}} />
+        <label>Description: </label>
         <input type='text' 
           id='description'
           placeholder='description'
@@ -58,14 +60,15 @@ function NewJobForm(props) {
           <option value=''>Choose a Type from the List</option>
           
           {(props.typeList).map((type) => {
-            return <option value={type.id} key={type.id}>{type.title}</option>
+            return <option value={type.id} key={type.id}>{type.title}</option>;
           })}
-        </select>
+        </select> <br/>
+        <label>Due Date: </label>
         <input type='date' 
           id='due_date'
           placeholder='due_date'
           ref={(input) => {_due_date = input;}} />
-          <br/>
+        <br/>
         <button type='submit'>Add New Job</button>
       </form>
       <style jsx>{`
@@ -75,7 +78,7 @@ function NewJobForm(props) {
         form {
           padding-top: 20px;
           border: 2px solid black;
-          background-color: lightgrey;
+          background-color: #d9f1f9;
           // exact height needs work
           height: 100%;
           text-align: center;
@@ -84,6 +87,12 @@ function NewJobForm(props) {
           border-radius: 5px;
           line-height: 20px;
           font-size: 18px;
+          margin: 10px;
+          padding: 2px;
+        }
+        select {
+          line-height: 18px;
+          font-size: 16px;
           margin: 10px;
           padding: 2px;
         }
@@ -96,6 +105,7 @@ function NewJobForm(props) {
         button:hover {
           background-color: lightgreen;
         }
+        
 
         @keyframes openUp {
           0% {width: 0px}
@@ -103,13 +113,13 @@ function NewJobForm(props) {
         }
       `}</style>
     </div>
-  )
+  );
 }
 
 const mapStateToProps = state => {
   return {
     typeList: state.jobTypeList,
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(NewJobForm);

@@ -35,7 +35,7 @@ function Header() {
     <Main>
       <FlexDiv>
         <h2>Digital Kanban</h2>
-        <h4>Job Tracking for Your Buisness</h4>
+        <h4>Job Tracking for Your Business</h4>
       </FlexDiv>
       <FlexDiv>
         <Alinks><Link style={linkStyle} to="/">Jobs Board </Link></Alinks>

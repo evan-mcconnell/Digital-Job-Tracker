@@ -11,10 +11,10 @@ function JobBoard() {
   const [newJobTypeOpen, setNewJobTypeOpen] = useState(false);
 
   function handleOpenNewJob() {
-    setNewJobOpen(!newJobOpen)
+    setNewJobOpen(!newJobOpen);
   }
   function handleOpenNewJobType() {
-    setNewJobTypeOpen(!newJobTypeOpen)
+    setNewJobTypeOpen(!newJobTypeOpen);
   }
 
   const FlexDiv = styled.div`
