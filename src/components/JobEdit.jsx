@@ -38,7 +38,7 @@ function JobEdit(props) {
     _description = '';
     _job_type = '';
     _due_date = '';
-    props.onEditSubmit;
+    props.onEditSubmit();
   }
 	
   const EditForm = styled.div`

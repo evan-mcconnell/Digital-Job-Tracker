@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import JobEdit from './JobEdit';
 import DeleteCheck from './DeleteCheck';
@@ -17,7 +17,13 @@ function Job(props) {
     setDeleteCheck(!deleteCheck);
   }
 
-  let headerColor = ['#0091FF', '#1db001', '#9d18e0', '#e05ccb', '#e05ccb'];
+  useEffect(() => {
+    if (editFormOpen) {
+      setEditFormOpen(!editFormOpen);
+    }
+  }, true);
+
+  let headerColor = ['#0091FF', '#1db001', '#9d18e0','#FA6400', '#e05ccb', '#44D7B6', '#6236FF'];
 
   const MainCard = styled.div`
     padding: 5px;
