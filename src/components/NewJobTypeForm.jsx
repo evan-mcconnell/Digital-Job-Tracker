@@ -50,7 +50,7 @@ function NewJobTypeForm({dispatch}) {
           id='description'
           placeholder='description'
           ref={(input) => {_description = input;}} />
-        <button type='submit'>Add New Job</button>
+        <button type='submit'>Add Job Type</button>
       </form>
       <style jsx>{`
         .main {

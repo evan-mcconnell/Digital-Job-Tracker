@@ -46,7 +46,7 @@ function JobEdit(props) {
 		margin-top: 26px;
 		margin-left: 160px;
 		padding: 5px;
-		background-color: rgba(63, 127, 191, 0.8);
+		background-color: rgba(63, 127, 191, 0.9);
 		border: 2px solid rgba(63, 127, 191, 1);
 		border-radius: 8px;
 	`;
@@ -54,23 +54,26 @@ function JobEdit(props) {
   return (
     <EditForm >
       <form onSubmit={handleEditJobSubmission}>
+			<label>New Lane: </label><br/>
         <select
           ref={select => {_lane = select;}}
           name="lane">
           <option value=''>Change Lane</option>
-          
           {(props.laneList).map((lane) => {
             return <option value={lane.id} key={lane.id}>{lane.name}</option>;
           })}
         </select><br/>
+				<label>Edit Title: </label><br/>
         <input type='text' 
           id='title'
           placeholder={props.jobInfo.title}
           ref={(input) => {_title = input;}} /> <br/>
+					<label>Edit Description: </label><br/>
         <textarea type='text' 
           id='description'
           placeholder={props.jobInfo.description}
           ref={(input) => {_description = input;}} /><br/>
+					<label>Change Job Type: </label><br/>
         <select
           ref={select => {_job_type = select;}}
           name="job_type">
@@ -80,13 +83,18 @@ function JobEdit(props) {
             return <option value={type.id} key={type.id}>{type.title}</option>;
           })}
         </select><br/>
+				<label>Change Due Date: </label><br/>
         <input type='date' 
           id='due_date'
           ref={(input) => {_due_date = input;}} /><br/>
         <br/>
         <button type='submit'>Edit Job</button>
       </form>
-      <style jsx>{`
+			<style jsx>{`
+				label {
+					font-size: 14px;
+					color: white;
+				}
 				form {
 					padding: 5px;
 					text-align: center;

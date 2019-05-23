@@ -17,7 +17,7 @@ function Job(props) {
     setDeleteCheck(!deleteCheck);
   }
 
-  let headerColor = ['#0091FF', '#1db001', '#9d18e0', '#b06101'];
+  let headerColor = ['#0091FF', '#1db001', '#9d18e0', '#e05ccb', '#e05ccb'];
 
   const MainCard = styled.div`
     padding: 5px;
